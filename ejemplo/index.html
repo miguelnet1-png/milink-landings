@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zapatillas Ejemplo — $45.900</title>
+<meta name="description" content="Zapatillas Ejemplo. Diseño urbano, suela reforzada, hechas para durar todo el día. Envíos a todo el país.">
+<meta property="og:title" content="Zapatillas Ejemplo — $45.900">
+<meta property="og:description" content="Diseño urbano, hechas para durar todo el día. Envíos a todo el país.">
+<meta property="og:image" content="producto.jpg">
+<meta property="og:type" content="product">
+<meta name="theme-color" content="#17120F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --tinta:#17120F;
+  --gris:#6B615B;
+  --gris-suave:#9A8F88;
+  --arcilla:#B8705C;
+  --arcilla-clara:#F7EDE8;
+  --crema:#FBF8F5;
+  --linea:#E8E1DC;
+  --linea-fuerte:#DED5CF;
+  --verde:#1EA362;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:#fff}
+body{
+  margin:0;background:#fff;color:var(--tinta);
+  font-family:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+h1,h2,.display{font-family:"Bricolage Grotesque","Instrument Sans",sans-serif;font-weight:800;letter-spacing:-.03em;line-height:1.04;margin:0}
+p{margin:0 0 1em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:520px;margin:0 auto;padding:0 20px}
+
+/* hero */
+.foto{position:relative;background:var(--crema)}
+.foto img{width:100%;height:auto}
+.sello{
+  position:absolute;top:14px;left:14px;
+  font-family:"Bricolage Grotesque";font-weight:800;font-size:.73rem;letter-spacing:.06em;
+  background:rgba(23,18,15,.88);color:#fff;padding:7px 12px;border-radius:99px;backdrop-filter:blur(4px);
+}
+
+/* producto */
+.producto{padding:26px 0 0}
+h1{font-size:clamp(2rem,8.5vw,2.7rem);margin-bottom:8px}
+.subtitulo{font-size:1.08rem;color:var(--gris);margin-bottom:14px}
+.precio-fila{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.precio{font-family:"Bricolage Grotesque";font-weight:800;font-size:2.5rem;letter-spacing:-.04em;line-height:1}
+.precio-antes{font-size:1.1rem;color:var(--gris-suave);text-decoration:line-through;font-weight:500}
+.cuotas{font-size:.95rem;color:var(--gris);margin-bottom:26px}
+
+/* estrellas (se usan arriba del título y en cada reseña) */
+.estrellas{display:inline-flex;gap:2px;flex:none}
+.estrellas svg{width:15px;height:15px;fill:var(--arcilla)}
+.estrellas svg.vacia{fill:var(--linea-fuerte)}
+
+/* resumen de opiniones, debajo del subtítulo */
+.resumen{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:.93rem}
+.resumen b{font-weight:600}
+.resumen a{color:var(--gris);border-bottom:1px solid var(--linea-fuerte)}
+
+/* beneficios */
+.beneficios{list-style:none;padding:0;margin:0 0 20px;border-top:1px solid var(--linea)}
+.beneficios li{
+  border-bottom:1px solid var(--linea);padding:14px 0 14px 32px;position:relative;
+  font-size:1rem;line-height:1.4;
+}
+.beneficios li::before{
+  content:"";position:absolute;left:4px;top:1.15em;
+  width:11px;height:6px;border-left:2.4px solid var(--arcilla);border-bottom:2.4px solid var(--arcilla);
+  transform:rotate(-45deg);
+}
+.beneficios b{font-weight:600}
+
+/* confianza */
+.confianza{
+  display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;
+  background:var(--arcilla-clara);border-radius:11px;padding:13px 14px;margin-bottom:22px;
+}
+.confianza span{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.88rem;font-weight:500;color:#8A5343;
+}
+.confianza svg{width:14px;height:14px;fill:currentColor;flex:none}
+
+/* botones */
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+  font-family:"Bricolage Grotesque";font-weight:800;letter-spacing:-.015em;
+  border:0;border-radius:11px;cursor:pointer;transition:transform .12s ease,background .15s ease;
+}
+.btn:active{transform:scale(.985)}
+.btn-comprar{
+  background:var(--tinta);color:#fff;font-size:1.22rem;padding:19px 20px;
+  box-shadow:0 4px 14px rgba(23,18,15,.18);
+}
+.btn-comprar:hover{background:#2A211B}
+.btn-wa{
+  background:#fff;color:var(--tinta);border:1.5px solid var(--linea);
+  font-size:.98rem;font-weight:700;padding:14px 18px;margin-top:11px;line-height:1.25;text-align:center;
+}
+.btn-wa:hover{background:var(--crema)}
+.btn-wa svg{width:19px;height:19px;fill:var(--verde);flex:none}
+:focus-visible{outline:3px solid var(--arcilla);outline-offset:3px}
+
+/* urgencia */
+.urgencia{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:18px;font-size:.95rem;font-weight:600;color:var(--arcilla);
+}
+.punto{width:8px;height:8px;border-radius:50%;background:var(--arcilla);flex:none;animation:late 2.4s ease-in-out infinite}
+@keyframes late{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ───── reseñas ───── */
+.resenas{margin-top:38px;padding-top:26px;border-top:1px solid var(--linea)}
+.resenas h2{font-size:1.5rem;margin-bottom:14px}
+.promedio{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--linea);
+}
+.nota{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.6rem;letter-spacing:-.03em;line-height:1}
+.cantidad{font-size:.92rem;color:var(--gris)}
+.resena{padding:0 0 18px;margin-bottom:18px;border-bottom:1px solid var(--linea)}
+.resena:last-of-type{border-bottom:0;padding-bottom:4px;margin-bottom:0}
+.resena-top{display:flex;align-items:center;gap:11px;margin-bottom:9px}
+.avatar{
+  width:36px;height:36px;border-radius:50%;flex:none;
+  background:var(--arcilla-clara);color:#8A5343;
+  font-weight:700;font-size:.86rem;display:flex;align-items:center;justify-content:center;
+}
+.quien{min-width:0}
+.nombre{font-weight:600;font-size:.97rem;line-height:1.25}
+.verificada{display:flex;align-items:center;gap:5px;font-size:.8rem;color:var(--gris);line-height:1.3}
+.verificada svg{width:12px;height:12px;fill:var(--verde);flex:none}
+.resena .estrellas{margin-bottom:7px}
+.resena p{margin:0;font-size:1rem;line-height:1.5}
+.detalle{
+  display:inline-block;margin-top:9px;font-size:.82rem;color:var(--gris);
+  background:var(--crema);border:1px solid var(--linea);border-radius:99px;padding:3px 10px;
+}
+.cierre-resenas{margin:20px 0 0;font-size:.92rem;color:var(--gris);text-align:center}
+
+/* segundo llamado */
+.otra-vez{margin-top:26px}
+.otra-vez .precio-chico{
+  text-align:center;font-size:.95rem;color:var(--gris);margin:0 0 12px;
+}
+.otra-vez .precio-chico b{color:var(--tinta);font-weight:600}
+
+/* pie */
+.redes{
+  margin-top:40px;padding-top:22px;border-top:1px solid var(--linea);
+  text-align:center;font-size:.9rem;color:var(--gris-suave);
+}
+.redes a{color:var(--gris);font-weight:500}
+.marca-agua{
+  margin-top:22px;padding:16px 0 34px;text-align:center;
+  font-size:.88rem;color:var(--gris);
+}
+.marca-agua a{font-weight:600;color:var(--tinta);border-bottom:1.5px solid var(--arcilla);padding-bottom:1px}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<script>
+/* Imagen de respaldo: si todavía no subiste producto.jpg, la landing no se rompe. */
+window.__ph = "data:image/svg+xml;utf8," + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 694">' +
+  '<rect width="900" height="694" fill="#F7EDE8"/>' +
+  '<circle cx="450" cy="300" r="150" fill="#EFDDD4"/>' +
+  '<path d="M250 470c80-30 150-10 230 10s150 20 200-10v60H250z" fill="#E2CBC0"/>' +
+  '<text x="450" y="620" text-anchor="middle" font-family="sans-serif" font-size="30" fill="#B8705C">foto del producto</text>' +
+  '</svg>');
+</script>
+</head>
+<body>
+
+<div class="foto">
+  <img id="foto-producto" src="producto.jpg" alt="Zapatillas Ejemplo en color rosa y crema" width="900" height="694"
+       onerror="this.onerror=null;this.src=window.__ph">
+  <div class="sello">MÁS VENDIDA</div>
+</div>
+
+<main class="wrap producto">
+
+  <h1>Zapatillas Ejemplo</h1>
+  <p class="subtitulo">Diseño urbano, hechas para durar todo el día.</p>
+
+  <div class="resumen">
+    <span class="estrellas" aria-label="4,8 de 5 estrellas">
+      <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+    </span>
+    <b>4,8</b>
+    <a href="#opiniones">42 opiniones de clientas</a>
+  </div>
+
+  <div class="precio-fila">
+    <span class="precio">$45.900</span>
+    <span class="precio-antes">$59.900</span>
+  </div>
+  <p class="cuotas">O 3 cuotas sin interés de $15.300</p>
+
+  <ul class="beneficios">
+    <li><b>Suela reforzada</b>, pensada para uso diario</li>
+    <li><b>Colores exclusivos</b>, producción limitada</li>
+    <li><b>Envíos a todo el país</b>, salen en 24 horas</li>
+  </ul>
+
+  <div class="confianza">
+    <span>
+      <svg viewBox="0 0 24 24"><path d="M12 1.5 3 5.2v6.1c0 5 3.8 9.7 9 11.2 5.2-1.5 9-6.2 9-11.2V5.2l-9-3.7z"/></svg>
+      Pago seguro
+    </span>
+    <span>
+      <svg viewBox="0 0 24 24"><path d="M7.1 5.1 5.6 3.6A9 9 0 0 1 21 10h-2.1A7 7 0 0 0 7.1 5.1zM3 12a9 9 0 0 0 15.4 6.4l1.5 1.5A11 11 0 0 1 3 14v-2zm2-1h6l-3 3-3-3zm14 2h-6l3-3 3 3z"/></svg>
+      Cambios por talle
+    </span>
+    <span>
+      <svg viewBox="0 0 24 24"><path d="M3 6h11v9H3V6zm12 3h3.5l2.5 3v3h-6V9zM6.5 20a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6zm11 0a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6z"/></svg>
+      Envío en 24 h
+    </span>
+  </div>
+
+  <a class="btn btn-comprar" href="#" id="pagar">Comprar ahora</a>
+
+  <a class="btn btn-wa" href="#" id="whatsapp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1 .1-1.1z"/></svg>
+    ¿Dudas sobre talle, color o envío? Escribinos por WhatsApp
+  </a>
+
+  <!-- MÓDULO DE URGENCIA: se muestra solo cuando hay un motivo real.
+       Para ocultarlo, borrar este bloque o poner style="display:none" -->
+  <div class="urgencia" id="urgencia">
+    <span class="punto"></span>
+    Quedan pocos pares de este color
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────────
+       RESEÑAS
+       Usar SOLO opiniones reales de clientes. Se piden por
+       WhatsApp 3 días después de la entrega: "¿Cómo te fueron?
+       ¿Puedo publicar tu comentario con tu nombre de pila?"
+       Reglas que hacen que funcione:
+       · Nombre de pila + inicial, nunca nombre completo.
+       · Dejar una reseña de 4 estrellas con un pero: da más
+         credibilidad que tres perfectas.
+       · Que cada una responda una duda distinta (talle, envío,
+         calidad). Son las objeciones que frenan la compra.
+       · El promedio de arriba tiene que coincidir con la realidad.
+       Si todavía no hay reseñas, borrar esta sección entera y el
+       bloque .resumen de arriba hasta tener al menos tres.
+       ───────────────────────────────────────────────────────── -->
+  <section class="resenas" id="opiniones">
+    <h2>Lo que dicen las que ya las tienen</h2>
+
+    <div class="promedio">
+      <span class="estrellas" aria-label="4,8 de 5 estrellas">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+      </span>
+      <span class="nota">4,8</span>
+      <span class="cantidad">sobre 42 compras verificadas</span>
+    </div>
+
+    <article class="resena">
+      <div class="resena-top">
+        <div class="avatar" aria-hidden="true">MB</div>
+        <div class="quien">
+          <div class="nombre">Malena B.</div>
+          <div class="verificada">
+            <svg viewBox="0 0 24 24"><path d="M9.6 17.3 4.3 12l1.8-1.8 3.5 3.5 8-8L19.4 7.5z"/></svg>
+            Compra verificada · agosto
+          </div>
+        </div>
+      </div>
+      <span class="estrellas" aria-label="5 de 5 estrellas">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+      </span>
+      <p>Las uso todo el día para trabajar y no me quedan los pies cansados. Es el segundo par que compro, ahora en crema.</p>
+      <span class="detalle">Talle 38 · le quedó justo</span>
+    </article>
+
+    <article class="resena">
+      <div class="resena-top">
+        <div class="avatar" aria-hidden="true">CF</div>
+        <div class="quien">
+          <div class="nombre">Carolina F.</div>
+          <div class="verificada">
+            <svg viewBox="0 0 24 24"><path d="M9.6 17.3 4.3 12l1.8-1.8 3.5 3.5 8-8L19.4 7.5z"/></svg>
+            Compra verificada · agosto
+          </div>
+        </div>
+      </div>
+      <span class="estrellas" aria-label="4 de 5 estrellas">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg class="vacia" viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+      </span>
+      <p>Llegaron a Neuquén en cuatro días, uno más de lo que decía la web. El color es igual a la foto y la suela es firme de verdad.</p>
+      <span class="detalle">Envío al interior</span>
+    </article>
+
+    <article class="resena">
+      <div class="resena-top">
+        <div class="avatar" aria-hidden="true">SR</div>
+        <div class="quien">
+          <div class="nombre">Sofía R.</div>
+          <div class="verificada">
+            <svg viewBox="0 0 24 24"><path d="M9.6 17.3 4.3 12l1.8-1.8 3.5 3.5 8-8L19.4 7.5z"/></svg>
+            Compra verificada · julio
+          </div>
+        </div>
+      </div>
+      <span class="estrellas" aria-label="5 de 5 estrellas">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.1l6.6-.9z"/></svg>
+      </span>
+      <p>Pedí un talle más grande por las dudas y me lo cambiaron sin problema, me contestaron por WhatsApp el mismo día.</p>
+      <span class="detalle">Cambio de talle resuelto en 48 h</span>
+    </article>
+
+    <p class="cierre-resenas">Todas las opiniones son de compras hechas en esta tienda.</p>
+  </section>
+
+  <div class="otra-vez">
+    <p class="precio-chico"><b>$45.900</b> · 3 cuotas sin interés de $15.300</p>
+    <a class="btn btn-comprar" href="#" id="pagar-2">Comprar ahora</a>
+    <a class="btn btn-wa" href="#" id="whatsapp-2" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1 .1-1.1z"/></svg>
+      Preguntar mi talle antes de comprar
+    </a>
+  </div>
+
+  <div class="redes">
+    @ejemplo · <a href="#" target="_blank" rel="noopener">Instagram</a> · <a href="#" target="_blank" rel="noopener">TikTok</a>
+  </div>
+
+  <div class="marca-agua">
+    Landing hecha con <a href="https://milink.shop">milink.shop</a> — la tuya en 24 horas
+  </div>
+
+</main>
+
+<script>
+/* ─────────────────────────────────────────────────────────
+   DATOS A COMPLETAR POR CADA CLIENTE
+   WHATSAPP → número con 549 adelante, sin + ni espacios
+   LINK_PAGO → link de Mercado Pago, o dejar vacío ("")
+               para que el botón principal también vaya a WhatsApp
+   ───────────────────────────────────────────────────────── */
+const WHATSAPP  = "5491137663645";
+const LINK_PAGO = "";
+const PRODUCTO  = "Zapatillas Ejemplo";
+
+const wa = t => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(t);
+
+document.getElementById("whatsapp").href =
+  wa("Hola, tengo una consulta sobre las " + PRODUCTO + ".");
+document.getElementById("whatsapp-2").href =
+  wa("Hola, quiero saber qué talle me conviene de las " + PRODUCTO + ".");
+
+[["pagar", ""], ["pagar-2", " (vi las opiniones)"]].forEach(([id, nota]) => {
+  const b = document.getElementById(id);
+  if (LINK_PAGO) {
+    b.href = LINK_PAGO;
+  } else {
+    b.href = wa("Hola, quiero comprar las " + PRODUCTO + "." + nota);
+  }
+  b.target = "_blank";
+  b.rel = "noopener";
+});
+</script>
+</body>
+</html>
