@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>milink.shop — para quien da turnos o atiende consultas</title>
+<meta name="description" content="Una página para el link de tu bio: la persona elige qué necesita, cuándo y cómo, y te escribe por WhatsApp con todo definido.">
+<meta property="og:title" content="¿Das turnos o atendés consultas? Que te lleguen claras por WhatsApp">
+<meta property="og:description" content="Una página para el link de tu bio. Chau «hola, info».">
+<meta name="theme-color" content="#121316">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --tinta:#121316;
+  --gris:#5E616A;
+  --gris-suave:#8D909A;
+  --banda:#F1F2F4;
+  --linea:#E3E4E8;
+  --cobalto:#2F4BFF;
+  --verde:#1EA362;
+  --burbuja-wa:#D9FDD3;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:#fff}
+body{
+  margin:0;background:#fff;color:var(--tinta);
+  font-family:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:"Unbounded","Instrument Sans",sans-serif;font-weight:700;letter-spacing:-.02em;margin:0}
+p{margin:0 0 1em}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding-left:20px;padding-right:20px}
+:focus-visible{outline:3px solid var(--cobalto);outline-offset:3px}
+
+.cabecera{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px}
+.marca{font-family:"Unbounded";font-weight:700;font-size:1.05rem;letter-spacing:-.03em}
+.marca span{font-weight:600;color:var(--gris-suave)}
+.cabecera a.chico{font-weight:600;font-size:.95rem;border-bottom:1.5px solid var(--tinta)}
+
+/* hero */
+.hero{padding-top:22px;padding-bottom:40px}
+.pregunta{font-weight:600;color:var(--cobalto);font-size:1.02rem;margin-bottom:10px}
+.hero h1{font-size:clamp(1.9rem,7.6vw,3.1rem);line-height:1.06;margin-bottom:18px;max-width:14em}
+.hero .bajada{font-size:1.12rem;color:var(--gris);max-width:32em;margin-bottom:26px}
+.acciones{display:flex;flex-direction:column;gap:11px;max-width:420px}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  font-weight:700;font-size:1.05rem;border-radius:12px;padding:17px 20px;text-align:center;
+  border:0;cursor:pointer;transition:transform .12s ease,background .15s ease;
+}
+.btn:active{transform:scale(.985)}
+.btn-principal{background:var(--tinta);color:#fff}
+.btn-principal:hover{background:#262830}
+.btn-wa{background:#fff;color:var(--tinta);border:1.5px solid var(--linea)}
+.btn-wa:hover{background:var(--banda)}
+.btn-wa svg{width:20px;height:20px;fill:var(--verde);flex:none}
+.desde{margin:14px 0 0;font-size:.95rem;color:var(--gris)}
+
+/* chats */
+.chat-banda{background:var(--tinta);color:#fff;padding:52px 0 56px}
+.chat-banda h2{font-size:clamp(1.45rem,5.4vw,2.2rem);line-height:1.12;margin-bottom:12px}
+.chat-banda .intro{color:#B7BAC4;max-width:34em;margin-bottom:30px}
+.chats{display:grid;gap:18px}
+@media (min-width:720px){.chats{grid-template-columns:1fr 1fr;gap:22px}}
+.chat{background:#1D1F24;border-radius:18px;padding:18px 16px 20px}
+.chat-titulo{font-weight:600;font-size:.92rem;color:#B7BAC4;margin:0 0 14px;padding-left:4px}
+.burbujas{display:flex;flex-direction:column;gap:7px}
+.b{max-width:82%;padding:9px 13px;border-radius:14px;border-bottom-left-radius:5px;font-size:.97rem;line-height:1.35;background:#2C2F36;color:#fff;align-self:flex-start}
+.b.yo{align-self:flex-end;background:#3A3E47;border-bottom-left-radius:14px;border-bottom-right-radius:5px}
+.b .hora{display:block;text-align:right;font-size:.72rem;color:#9A9EA8;margin-top:3px}
+.b.armado{background:var(--burbuja-wa);color:#10231A;max-width:92%}
+.b.armado .hora{color:#51705F}
+.chat-pie{margin:14px 0 0;padding-left:4px;font-size:.92rem;color:#B7BAC4}
+.chat-pie b{color:#fff;font-weight:600}
+
+/* rubros */
+.rubros{padding-top:56px;padding-bottom:52px}
+.rubros h2{font-size:clamp(1.4rem,5vw,2rem);margin-bottom:8px}
+.rubros .intro{color:var(--gris);margin-bottom:22px;max-width:32em}
+.pestanas{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.pestana{
+  min-height:44px;padding:0 15px;border-radius:99px;cursor:pointer;font-weight:600;font-size:.95rem;
+  background:#fff;border:1.5px solid var(--linea);transition:background .12s ease,border-color .12s ease,color .12s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.pestana:hover{border-color:var(--gris-suave)}
+.pestana[aria-selected="true"]{background:var(--tinta);border-color:var(--tinta);color:#fff}
+.vista{background:var(--banda);border-radius:18px;padding:20px 18px}
+.vista-rotulo{font-size:.85rem;font-weight:600;color:var(--gris);margin-bottom:10px}
+.opciones-previa{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.opciones-previa span{background:#fff;border:1.5px solid var(--tinta);border-radius:9px;padding:7px 12px;font-weight:600;font-size:.93rem}
+.llega{background:#E5DDD5;border-radius:14px;padding:14px 12px}
+.llega .b{background:var(--burbuja-wa);color:#10231A;max-width:100%;font-size:1rem}
+.llega .b .hora{color:#51705F}
+
+/* seña */
+.sena{padding-bottom:52px}
+.sena-caja{border:1.5px solid var(--linea);border-radius:18px;padding:22px 20px}
+.sena h2{font-size:clamp(1.3rem,4.6vw,1.75rem);margin-bottom:10px}
+.sena p{color:var(--gris);margin-bottom:14px}
+.sena ul{list-style:none;padding:0;margin:0}
+.sena li{padding:10px 0 10px 28px;border-top:1px solid var(--linea);position:relative;line-height:1.45}
+.sena li::before{content:"";position:absolute;left:4px;top:1.05em;width:10px;height:5px;border-left:2.2px solid var(--tinta);border-bottom:2.2px solid var(--tinta);transform:rotate(-45deg)}
+.sena li b{font-weight:600}
+
+/* para quién */
+.quien-banda{background:var(--banda);padding:52px 0}
+.quien-banda h2{font-size:clamp(1.4rem,5vw,2rem);margin-bottom:22px}
+.columnas{display:grid;gap:16px}
+@media (min-width:720px){.columnas{grid-template-columns:1fr 1fr}}
+.col{background:#fff;border-radius:16px;padding:20px 18px}
+.col h3{font-size:1rem;margin-bottom:10px;letter-spacing:-.01em}
+.col ul{margin:0;padding-left:1.1em}
+.col li{margin-bottom:8px;line-height:1.45}
+.col.no{color:var(--gris)}
+
+/* precio */
+.precio{padding-top:56px;padding-bottom:52px}
+.precio h2{font-size:clamp(1.4rem,5vw,2rem);margin-bottom:20px}
+.plan{border:2px solid var(--tinta);border-radius:18px;padding:24px 20px;max-width:480px}
+.etiqueta{display:inline-block;font-size:.8rem;font-weight:600;background:var(--tinta);color:#fff;padding:4px 10px;border-radius:99px;margin-bottom:14px}
+.monto{font-family:"Unbounded";font-weight:700;font-size:2.1rem;letter-spacing:-.03em;line-height:1}
+.mensual{color:var(--gris);margin:6px 0 4px}
+.despues{font-size:.92rem;color:var(--gris);margin-bottom:18px}
+.despues s{color:var(--gris-suave)}
+.plan ul{list-style:none;padding:0;margin:0 0 20px}
+.plan li{padding:9px 0 9px 26px;border-top:1px solid var(--linea);position:relative;font-size:.98rem;line-height:1.4}
+.plan li::before{content:"";position:absolute;left:3px;top:.95em;width:10px;height:5px;border-left:2.2px solid var(--tinta);border-bottom:2.2px solid var(--tinta);transform:rotate(-45deg)}
+.cuenta{margin-top:20px;background:var(--banda);border-radius:14px;padding:16px 18px;max-width:480px;line-height:1.5}
+.cuenta b{font-weight:700}
+.riesgo{margin-top:14px;max-width:480px;font-weight:600;line-height:1.45}
+
+/* preguntas */
+.preguntas{padding-bottom:52px;max-width:760px}
+.preguntas h2{font-size:clamp(1.3rem,4.6vw,1.75rem);margin-bottom:14px}
+details{border-top:1px solid var(--linea)}
+details:last-of-type{border-bottom:1px solid var(--linea)}
+summary{list-style:none;cursor:pointer;padding:17px 30px 17px 0;position:relative;font-weight:600;font-size:1.02rem;line-height:1.35}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:50%;width:9px;height:9px;margin-top:-7px;border-right:2px solid var(--gris);border-bottom:2px solid var(--gris);transform:rotate(45deg);transition:transform .15s ease}
+details[open] summary::after{transform:rotate(-135deg);margin-top:-2px}
+details p{color:var(--gris);margin:0;padding:0 0 18px;line-height:1.5}
+
+/* cierre */
+.cierre{background:var(--tinta);color:#fff;padding:52px 0 44px}
+.cierre h2{font-size:clamp(1.45rem,5.4vw,2.2rem);line-height:1.12;margin-bottom:12px;max-width:16em}
+.cierre p{color:#B7BAC4;margin-bottom:24px}
+.cierre .btn-wa{background:var(--verde);border-color:var(--verde);color:#fff;max-width:420px}
+.cierre .btn-wa svg{fill:#fff}
+.pie{margin-top:40px;padding-top:18px;border-top:1px solid #2C2F36;font-size:.88rem;color:#8D909A}
+.pie a{color:#B7BAC4;border-bottom:1px solid #4A4E58}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="wrap cabecera">
+  <a class="marca" href="https://milink.shop">milink<span>.shop</span></a>
+  <a class="chico wa-link" href="#" data-msg="Hola, tengo una consulta sobre milink para mi servicio." target="_blank" rel="noopener">Escribime</a>
+</header>
+
+<main>
+
+  <section class="wrap hero">
+    <p class="pregunta">¿Das turnos o atendés consultas?</p>
+    <h1>Que te lleguen claras por WhatsApp</h1>
+    <p class="bajada">Una página para el link de tu bio donde la persona elige qué necesita, cuándo y cómo. A vos te llega el mensaje con todo definido, sin «hola, info».</p>
+    <div class="acciones">
+      <a class="btn btn-principal" href="https://ejemplo-turnos.milink.shop" target="_blank" rel="noopener">Probá una de ejemplo</a>
+      <a class="btn btn-wa wa-link" href="#" data-msg="Hola, quiero una página para mi servicio." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1 .1-1.1z"/></svg>
+        Quiero la mía
+      </a>
+    </div>
+    <p class="desde">Precio de lanzamiento: $30.000 + $5.000 por mes · Lista en 24 horas</p>
+  </section>
+
+  <section class="chat-banda">
+    <div class="wrap">
+      <h2>El «hola, info» te come el día</h2>
+      <p class="intro">Cada consulta arranca con preguntas que ya respondiste mil veces. Y mucha gente ni siquiera se anima a escribir.</p>
+      <div class="chats">
+        <div class="chat">
+          <p class="chat-titulo">Hoy</p>
+          <div class="burbujas">
+            <div class="b">hola<span class="hora">10:12</span></div>
+            <div class="b">info?<span class="hora">10:12</span></div>
+            <div class="b yo">¡Hola! ¿Qué estás necesitando?<span class="hora">13:40</span></div>
+            <div class="b">cuánto sale la sesión<span class="hora">18:03</span></div>
+            <div class="b">es online o presencial?<span class="hora">18:03</span></div>
+            <div class="b">atendés sábados?<span class="hora">18:04</span></div>
+          </div>
+          <p class="chat-pie">Ocho horas y todavía no sabés qué necesita.</p>
+        </div>
+        <div class="chat">
+          <p class="chat-titulo">Con tu página</p>
+          <div class="burbujas">
+            <div class="b armado">Hola, quiero una primera entrevista · Adultos · Online · Tarde<span class="hora">10:12</span></div>
+          </div>
+          <p class="chat-pie"><b>Un mensaje y ya sabés qué necesita.</b> Solo te queda confirmar el horario.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap rubros">
+    <h2>Mirá cómo te llegaría a vos</h2>
+    <p class="intro">Elegí tu rubro: arriba, lo que toca tu cliente; abajo, el mensaje que te llega.</p>
+    <div class="pestanas" role="tablist" id="pestanas"></div>
+    <div class="vista">
+      <div class="vista-rotulo">Tu cliente elige</div>
+      <div class="opciones-previa" id="previa"></div>
+      <div class="vista-rotulo">Y a vos te llega por WhatsApp</div>
+      <div class="llega"><div class="b" id="mensaje-rubro"></div></div>
+    </div>
+  </section>
+
+  <section class="wrap sena">
+    <div class="sena-caja">
+      <h2>¿Cobrás seña? También sale de ahí</h2>
+      <p>La seña es lo que evita que te falten al turno. Hoy cobrarla lleva cinco mensajes. Con tu página, si querés:</p>
+      <ul>
+        <li><b>Botón de Mercado Pago</b> con el monto de la seña, sin mostrar ningún dato bancario.</li>
+        <li><b>O tu alias con botón de copiar</b>, si preferís transferencia.</li>
+        <li><b>Y un botón para mandarte el comprobante</b>, con el turno ya escrito.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="quien-banda">
+    <div class="wrap">
+      <h2>¿Es para vos?</h2>
+      <div class="columnas">
+        <div class="col">
+          <h3>Te sirve si…</h3>
+          <ul>
+            <li>te escriben «info» y después no contestan</li>
+            <li>respondés las mismas preguntas todas las semanas</li>
+            <li>el link de tu bio lleva directo a WhatsApp o a una lista de links</li>
+          </ul>
+        </div>
+        <div class="col no">
+          <h3>No te sirve si…</h3>
+          <ul>
+            <li>ya tenés turnos online funcionando</li>
+            <li>no te llegan consultas por redes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap precio">
+    <h2>Precio</h2>
+    <div class="plan">
+      <span class="etiqueta">Lanzamiento · primeros 10</span>
+      <div class="monto">$30.000</div>
+      <p class="mensual">+ $5.000 por mes</p>
+      <p class="despues">Después del lanzamiento, el armado pasa a $60.000.</p>
+      <ul>
+        <li>Tu página en tunombre.milink.shop</li>
+        <li>Consultas armadas por WhatsApp</li>
+        <li>Botón de seña o alias, si lo querés</li>
+        <li>Lista en 24 horas</li>
+      </ul>
+      <a class="btn btn-principal wa-link" href="#" data-msg="Hola, quiero la página para mi servicio con el precio de lanzamiento." target="_blank" rel="noopener">Quiero la mía</a>
+    </div>
+    <p class="cuenta">Hacé la cuenta con tu precio: <b>si una sesión o una clase vale $25.000, con una consulta más por mes la página ya se pagó.</b></p>
+    <p class="riesgo">Te la armo primero con tus datos. Si no te sirve, no me debés nada.</p>
+  </section>
+
+  <section class="wrap preguntas">
+    <h2>Preguntas</h2>
+    <details>
+      <summary>¿Necesito tener una web?</summary>
+      <p>No. Esta página es tu web: la ponés en el link de tu bio y listo.</p>
+    </details>
+    <details>
+      <summary>Ya tengo un Linktree, ¿lo pierdo?</summary>
+      <p>No. Tus otros links pueden ir en la misma página, debajo de la consulta.</p>
+    </details>
+    <details>
+      <summary>¿La página guarda datos de mis pacientes o clientes?</summary>
+      <p>No. La página no guarda nada: el mensaje va directo de tu cliente a tu WhatsApp.</p>
+    </details>
+    <details>
+      <summary>¿Qué te tengo que mandar?</summary>
+      <p>Tus servicios, cómo atendés (presencial, online o a domicilio), tus horarios, una o dos fotos y tu WhatsApp.</p>
+    </details>
+  </section>
+
+  <section class="cierre">
+    <div class="wrap">
+      <h2>Contame qué hacés y mañana tenés tu link</h2>
+      <p>Todo por WhatsApp, sin reuniones.</p>
+      <a class="btn btn-wa wa-link" href="#" data-msg="Hola, quiero una página para mi servicio." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1 .1-1.1z"/></svg>
+        Escribime por WhatsApp
+      </a>
+      <div class="pie">milink.shop · ¿Vendés productos? <a href="https://milink.shop">Mirá acá</a></div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+const WHATSAPP = "5491137663645";
+document.querySelectorAll(".wa-link").forEach(a => {
+  a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(a.dataset.msg || "Hola");
+});
+
+/* Rubros: lo que toca el cliente y el mensaje que llega */
+const RUBROS = [
+  { nombre: "Estética",       opciones: ["Limpieza facial", "Sábado", "Mañana"],            msg: "Hola, quiero un turno · Limpieza facial · Sábado · Mañana" },
+  { nombre: "Psicóloga",      opciones: ["Primera entrevista", "Adultos", "Online", "Tarde"], msg: "Hola, quiero una primera entrevista · Adultos · Online · Tarde" },
+  { nombre: "Profesora",      opciones: ["Matemática", "Secundaria", "Online"],             msg: "Hola, quiero clases · Matemática · Secundaria · Online" },
+  { nombre: "Nutricionista",  opciones: ["Primera consulta", "Particular", "Mañana"],       msg: "Hola, quiero una primera consulta · Particular · Mañana" },
+  { nombre: "Abogado",        opciones: ["Sucesión", "Esta semana", "Provincia"],           msg: "Hola, quiero hacer una consulta · Sucesión · Esta semana · Provincia de Bs. As." },
+  { nombre: "Entrenador",     opciones: ["Personalizado", "3 veces por semana", "Online"],  msg: "Hola, quiero entrenar · Personalizado · 3 veces por semana · Online" }
+];
+const pest = document.getElementById("pestanas");
+function mostrar(i) {
+  pest.querySelectorAll(".pestana").forEach((b, j) => b.setAttribute("aria-selected", j === i ? "true" : "false"));
+  const r = RUBROS[i];
+  const previa = document.getElementById("previa");
+  previa.innerHTML = "";
+  r.opciones.forEach(o => { const s = document.createElement("span"); s.textContent = o; previa.appendChild(s); });
+  document.getElementById("mensaje-rubro").innerHTML = "";
+  const m = document.getElementById("mensaje-rubro");
+  m.appendChild(document.createTextNode(r.msg));
+  const h = document.createElement("span"); h.className = "hora"; h.textContent = "ahora"; m.appendChild(h);
+}
+RUBROS.forEach((r, i) => {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "pestana"; b.setAttribute("role", "tab"); b.textContent = r.nombre;
+  b.addEventListener("click", () => mostrar(i));
+  pest.appendChild(b);
+});
+mostrar(0);
+</script>
+</body>
+</html>
