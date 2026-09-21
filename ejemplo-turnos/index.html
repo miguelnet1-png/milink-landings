@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lumina · Estética facial y uñas</title>
+<meta name="description" content="Pedí tu turno: elegí el servicio, el día y el horario, y escribinos por WhatsApp.">
+<meta name="theme-color" content="#2E3B33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bosque:#2E3B33;
+  --salvia:#6F8A77;
+  --salvia-clara:#E7EEE8;
+  --papel:#FAFAF7;
+  --tinta:#1D2420;
+  --gris:#5B645E;
+  --linea:#DDE3DE;
+  --verde-wa:#1EA362;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--papel)}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:"Manrope",system-ui,sans-serif;font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;letter-spacing:-.01em;margin:0;line-height:1.05}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+.wrap{max-width:520px;margin:0 auto;padding-left:20px;padding-right:20px}
+:focus-visible{outline:3px solid var(--salvia);outline-offset:3px}
+
+/* portada */
+.portada{background:var(--bosque);color:#fff;padding:44px 0 36px;text-align:center}
+.portada .sello{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 16px;border:1.5px solid rgba(255,255,255,.5);
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Cormorant Garamond";font-style:italic;font-weight:500;font-size:1.9rem;
+}
+.portada h1{font-size:clamp(2.6rem,11vw,3.4rem);margin-bottom:6px}
+.portada .rol{opacity:.85;font-size:1rem}
+.datos{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin-top:16px;font-size:.88rem;opacity:.85}
+
+/* servicios */
+section{padding-top:30px}
+.rotulo{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--salvia);margin-bottom:12px}
+.servicios{list-style:none;padding:0;margin:0;background:#fff;border:1px solid var(--linea);border-radius:16px}
+.servicios li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 16px;border-bottom:1px solid var(--linea)}
+.servicios li:last-child{border-bottom:0}
+.servicios b{font-weight:600;display:block}
+.servicios small{color:var(--gris);font-size:.85rem}
+.servicios .precio{font-weight:700;white-space:nowrap}
+
+/* turno */
+.turno{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:22px 18px}
+.turno h2{font-size:2rem;margin-bottom:4px}
+.turno .bajada{color:var(--gris);font-size:.95rem;margin-bottom:18px}
+.grupo{margin:0 0 16px;padding:0;border:0;min-width:0}
+.grupo legend{display:flex;justify-content:space-between;align-items:baseline;width:100%;padding:0;margin:0 0 8px;font-weight:700;font-size:.93rem}
+.grupo legend .elegido{font-weight:500;color:var(--gris);font-size:.88rem;text-align:right}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{
+  min-height:42px;padding:0 14px;border-radius:99px;cursor:pointer;font-weight:600;font-size:.92rem;
+  background:var(--papel);border:1.5px solid var(--linea);
+  transition:background .12s ease,border-color .12s ease,color .12s ease;-webkit-tap-highlight-color:transparent;
+}
+.chip:hover{border-color:var(--salvia)}
+.chip[aria-pressed="true"]{background:var(--bosque);border-color:var(--bosque);color:#fff}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+  border:0;border-radius:12px;cursor:pointer;font-weight:700;font-size:1.04rem;padding:16px 18px;text-align:center;
+  transition:transform .12s ease,filter .15s ease;
+}
+.btn:active{transform:scale(.985)}
+.btn-bosque{background:var(--bosque);color:#fff}
+.btn-bosque:hover{filter:brightness(1.12)}
+.btn-borde{background:#fff;border:1.5px solid var(--linea);color:var(--tinta);font-size:.97rem;margin-top:10px}
+.btn svg{width:19px;height:19px;fill:currentColor;flex:none}
+.btn-borde svg{fill:var(--verde-wa)}
+.resumen{text-align:center;font-size:.88rem;color:var(--gris);margin-top:9px;min-height:1.35em}
+
+/* seña */
+.sena{background:var(--salvia-clara);border-radius:18px;padding:20px 18px}
+.sena h2{font-size:1.7rem;margin-bottom:6px}
+.sena p{color:var(--gris);font-size:.95rem;margin-bottom:14px}
+.sena p b{color:var(--tinta)}
+
+/* info */
+.info{list-style:none;padding:0;margin:0}
+.info li{padding:11px 0;border-bottom:1px solid var(--linea);font-size:.95rem;display:flex;gap:10px}
+.info li span:first-child{font-weight:600;min-width:98px}
+.info li span:last-child{color:var(--gris)}
+
+/* pie */
+.pie{padding:34px 0 30px;text-align:center;font-size:.88rem;color:var(--gris)}
+.marca-agua{margin-top:14px}
+.marca-agua a{font-weight:600;color:var(--tinta);border-bottom:1.5px solid var(--salvia);padding-bottom:1px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="portada">
+  <div class="wrap">
+    <div class="sello" aria-hidden="true">L</div>
+    <h1>Lumina</h1>
+    <p class="rol">Estética facial y uñas</p>
+    <div class="datos"><span>Palermo, CABA</span><span>·</span><span>Lunes a sábado</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <div class="rotulo">Servicios</div>
+    <ul class="servicios" id="lista-servicios"></ul>
+  </section>
+
+  <section>
+    <div class="turno">
+      <h2>Pedí tu turno</h2>
+      <p class="bajada">Elegí servicio, día y horario, y te confirmamos por WhatsApp.</p>
+      <div id="selectores"></div>
+      <a class="btn btn-bosque" id="pedir" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1 .1-1.1z"/></svg>
+        Pedir turno por WhatsApp
+      </a>
+      <p class="resumen" id="resumen" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- MÓDULO DE SEÑA (opcional): borrar esta sección si el cliente no cobra seña -->
+  <section>
+    <div class="sena">
+      <h2>Seña para confirmar</h2>
+      <p>El turno se confirma con una seña de <b id="monto-sena"></b>, que se descuenta del total.</p>
+      <a class="btn btn-bosque" id="pagar-sena" href="#" target="_blank" rel="noopener">Pagar la seña con Mercado Pago</a>
+      <a class="btn btn-borde" id="comprobante" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+        Ya pagué, enviar comprobante
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="rotulo">Bueno saber</div>
+    <ul class="info">
+      <li><span>Horarios</span><span>Lunes a viernes de 10 a 19 · Sábados de 9 a 14</span></li>
+      <li><span>Dónde</span><span>Palermo, CABA. La dirección exacta te la pasamos al confirmar.</span></li>
+      <li><span>Cambios</span><span>Avisanos con 24 horas para reprogramar sin perder la seña.</span></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="wrap pie">
+  <p>@lumina.estetica · Instagram</p>
+  <p class="marca-agua">Página hecha con <a href="https://milink.shop/servicios">milink.shop</a> — la tuya en 24 horas</p>
+</footer>
+
+<script>
+/* ═══════════════ DATOS A COMPLETAR POR CADA CLIENTE ═══════════════
+   WHATSAPP   → número con 549 adelante, sin + ni espacios
+   SENA       → monto de la seña como texto, o "" para ocultar el módulo
+   LINK_SENA  → link de Mercado Pago con el monto de la seña.
+                Vacío = el botón pide el link por WhatsApp.
+   SERVICIOS  → [nombre, detalle, precio]. Precio "" = no se muestra.
+   ═════════════════════════════════════════════════════════════════ */
+const WHATSAPP  = "5491137663645";
+const SENA      = "$5.000";
+const LINK_SENA = "";
+
+const SERVICIOS = [
+  ["Limpieza facial profunda", "60 min", "$28.000"],
+  ["Dermaplaning",             "45 min", "$24.000"],
+  ["Kapping gel",              "60 min", "$16.000"],
+  ["Esmaltado semipermanente", "40 min", "$12.000"]
+];
+const DIAS     = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+const HORARIOS = ["Mañana","Tarde"];
+
+/* ═══════════ no hace falta tocar de acá para abajo ═══════════ */
+const wa = t => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(t);
+
+const ul = document.getElementById("lista-servicios");
+SERVICIOS.forEach(([n, d, p]) => {
+  const li = document.createElement("li");
+  li.innerHTML = '<div><b></b><small></small></div><span class="precio"></span>';
+  li.querySelector("b").textContent = n;
+  li.querySelector("small").textContent = d;
+  li.querySelector(".precio").textContent = p;
+  ul.appendChild(li);
+});
+
+const eleccion = {};
+function detalle() { return [eleccion.servicio, eleccion.dia, eleccion.horario].filter(Boolean); }
+function actualizar() {
+  const d = detalle();
+  document.getElementById("pedir").href = wa("Hola, quiero un turno" + (d.length ? " · " + d.join(" · ") : "."));
+  document.getElementById("resumen").textContent = d.length ? "Tu turno: " + d.join(" · ") : "";
+  if (SENA) {
+    const para = d.length ? " para: " + d.join(" · ") : "";
+    document.getElementById("pagar-sena").href = LINK_SENA || wa("Hola, quiero pagar la seña de " + SENA + para);
+    document.getElementById("comprobante").href = wa("Hola, ya pagué la seña de " + SENA + para + ". Te mando el comprobante.");
+  }
+}
+function grupo(clave, titulo, items) {
+  const fs = document.createElement("fieldset"); fs.className = "grupo";
+  const lg = document.createElement("legend");
+  lg.innerHTML = "<span>" + titulo + '</span><span class="elegido"></span>';
+  const chips = document.createElement("div"); chips.className = "chips";
+  items.forEach(v => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.textContent = v; b.setAttribute("aria-pressed","false");
+    b.addEventListener("click", () => {
+      const ya = eleccion[clave] === v;
+      chips.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed","false"));
+      if (ya) { delete eleccion[clave]; lg.querySelector(".elegido").textContent = ""; }
+      else { eleccion[clave] = v; b.setAttribute("aria-pressed","true"); lg.querySelector(".elegido").textContent = v; }
+      actualizar();
+    });
+    chips.appendChild(b);
+  });
+  fs.appendChild(lg); fs.appendChild(chips);
+  document.getElementById("selectores").appendChild(fs);
+}
+grupo("servicio", "Servicio", SERVICIOS.map(s => s[0]));
+grupo("dia", "Día", DIAS);
+grupo("horario", "Horario", HORARIOS);
+
+if (SENA) document.getElementById("monto-sena").textContent = SENA;
+else document.querySelector(".sena").closest("section").remove();
+actualizar();
+</script>
+</body>
+</html>
