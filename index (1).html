@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>milink.shop — una página de venta para tu producto</title>
+<meta name="description" content="Pegás el link en tu bio y te llegan pedidos armados por WhatsApp: producto, talle, color y envío. Lista en 24 horas.">
+<meta property="og:title" content="milink.shop — una página de venta para tu producto">
+<meta property="og:description" content="Te llegan pedidos armados por WhatsApp, no preguntas. Lista en 24 horas.">
+<meta property="og:image" content="vendedora.jpg">
+<meta name="theme-color" content="#121316">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --tinta:#121316;
+  --gris:#5E616A;
+  --gris-suave:#8D909A;
+  --banda:#F1F2F4;
+  --linea:#E3E4E8;
+  --cobalto:#2F4BFF;
+  --verde:#1EA362;
+  --burbuja-wa:#D9FDD3;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:#fff}
+body{
+  margin:0;background:#fff;color:var(--tinta);
+  font-family:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:"Unbounded","Instrument Sans",sans-serif;font-weight:700;letter-spacing:-.02em;margin:0}
+p{margin:0 0 1em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1040px;margin:0 auto;padding-left:20px;padding-right:20px}
+:focus-visible{outline:3px solid var(--cobalto);outline-offset:3px}
+
+/* cabecera */
+.cabecera{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px}
+.marca{font-family:"Unbounded";font-weight:700;font-size:1.05rem;letter-spacing:-.03em}
+.marca span{font-weight:600;color:var(--gris-suave)}
+.cabecera a.chico{font-weight:600;font-size:.95rem;border-bottom:1.5px solid var(--tinta)}
+
+/* hero */
+.hero{display:grid;gap:28px;padding-top:18px;padding-bottom:48px}
+.hero h1{font-size:clamp(1.9rem,7.4vw,3.3rem);line-height:1.06;margin-bottom:18px}
+.hero .bajada{font-size:1.12rem;color:var(--gris);max-width:34em;margin-bottom:26px}
+.acciones{display:flex;flex-direction:column;gap:11px;max-width:420px}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  font-weight:700;font-size:1.05rem;border-radius:12px;padding:17px 20px;text-align:center;
+  transition:transform .12s ease,background .15s ease;
+}
+.btn:active{transform:scale(.985)}
+.btn-principal{background:var(--tinta);color:#fff}
+.btn-principal:hover{background:#262830}
+.btn-wa{background:#fff;color:var(--tinta);border:1.5px solid var(--linea)}
+.btn-wa:hover{background:var(--banda)}
+.btn-wa svg{width:20px;height:20px;fill:var(--verde);flex:none}
+.hero figure{margin:0}
+.hero figure img{width:100%;height:auto;border-radius:18px}
+@media (min-width:880px){
+  .hero{grid-template-columns:1.05fr 1fr;align-items:center;gap:48px;padding-top:40px;padding-bottom:80px}
+}
+
+/* antes / después */
+.chat-banda{background:var(--tinta);color:#fff;padding:56px 0 60px}
+.chat-banda h2{font-size:clamp(1.5rem,5.6vw,2.3rem);line-height:1.12;margin-bottom:12px}
+.chat-banda .intro{color:#B7BAC4;max-width:34em;margin-bottom:34px}
+.chats{display:grid;gap:18px}
+@media (min-width:760px){.chats{grid-template-columns:1fr 1fr;gap:24px}}
+.chat{background:#1D1F24;border-radius:18px;padding:18px 16px 20px}
+.chat-titulo{font-weight:600;font-size:.92rem;color:#B7BAC4;margin:0 0 14px;padding-left:4px}
+.burbujas{display:flex;flex-direction:column;gap:7px}
+.b{
+  max-width:82%;padding:9px 13px;border-radius:14px;font-size:.97rem;line-height:1.35;
+  background:#2C2F36;color:#fff;align-self:flex-start;border-bottom-left-radius:5px;
+}
+.b.yo{align-self:flex-end;background:#3A3E47;border-bottom-left-radius:14px;border-bottom-right-radius:5px}
+.b .hora{display:block;text-align:right;font-size:.72rem;color:#9A9EA8;margin-top:3px}
+.b.pedido{background:var(--burbuja-wa);color:#10231A;max-width:92%}
+.b.pedido .hora{color:#51705F}
+.chat-pie{margin:14px 0 0;padding-left:4px;font-size:.92rem;color:#B7BAC4}
+.chat-pie b{color:#fff;font-weight:600}
+
+/* así se ve */
+.muestra{display:grid;gap:32px;padding-top:64px;padding-bottom:64px;align-items:center}
+@media (min-width:880px){.muestra{grid-template-columns:auto 1fr;gap:64px}}
+.telefono{
+  width:min(290px,78vw);margin:0 auto;border-radius:38px;padding:10px;
+  background:var(--tinta);box-shadow:0 24px 48px -20px rgba(18,19,22,.45);
+}
+.telefono img{width:100%;height:auto;border-radius:29px}
+.muestra h2{font-size:clamp(1.45rem,5vw,2.1rem);line-height:1.12;margin-bottom:14px}
+.muestra p{color:var(--gris);max-width:30em}
+.enlace-demo{
+  display:inline-flex;align-items:center;gap:8px;margin-top:6px;
+  font-weight:700;color:var(--cobalto);border-bottom:2px solid currentColor;padding-bottom:2px;
+}
+
+/* pasos */
+.pasos-banda{background:var(--banda);padding:56px 0}
+.pasos-banda h2{font-size:clamp(1.45rem,5vw,2.1rem);margin-bottom:28px}
+.pasos{list-style:none;padding:0;margin:0;display:grid;gap:22px;counter-reset:paso}
+@media (min-width:760px){.pasos{grid-template-columns:repeat(3,1fr);gap:28px}}
+.pasos li{counter-increment:paso;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.pasos li::before{
+  content:counter(paso);
+  font-family:"Unbounded";font-weight:700;font-size:1rem;
+  width:38px;height:38px;border-radius:50%;background:var(--tinta);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.pasos b{display:block;font-size:1.05rem;margin-bottom:3px}
+.pasos span{color:var(--gris);font-size:.98rem;line-height:1.45}
+
+/* precios */
+.precios{padding-top:64px;padding-bottom:56px}
+.precios h2{font-size:clamp(1.45rem,5vw,2.1rem);margin-bottom:10px}
+.precios .intro{color:var(--gris);margin-bottom:28px;max-width:32em}
+.planes{display:grid;gap:14px}
+@media (min-width:860px){.planes{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.plan{border:1.5px solid var(--linea);border-radius:16px;padding:22px 20px 22px;display:flex;flex-direction:column}
+.plan.destacado{border:2px solid var(--tinta);position:relative}
+.plan .etiqueta{
+  align-self:flex-start;font-size:.8rem;font-weight:600;background:var(--tinta);color:#fff;
+  padding:4px 10px;border-radius:99px;margin-bottom:12px;
+}
+.plan h3{font-size:1.1rem;margin-bottom:12px;letter-spacing:-.01em}
+.monto{font-family:"Unbounded";font-weight:700;font-size:1.9rem;letter-spacing:-.03em;line-height:1}
+.mensual{color:var(--gris);font-size:.95rem;margin:6px 0 16px}
+.plan ul{list-style:none;padding:0;margin:0 0 20px;flex:1}
+.plan li{padding:9px 0 9px 26px;border-top:1px solid var(--linea);position:relative;font-size:.97rem;line-height:1.4}
+.plan li::before{
+  content:"";position:absolute;left:3px;top:.95em;width:10px;height:5px;
+  border-left:2.2px solid var(--tinta);border-bottom:2.2px solid var(--tinta);transform:rotate(-45deg);
+}
+.plan .btn{font-size:1rem;padding:14px 16px}
+.extra{
+  margin-top:18px;background:var(--banda);border-radius:14px;padding:16px 18px;
+  font-size:.98rem;line-height:1.45;
+}
+.extra b{font-weight:700}
+
+/* preguntas */
+.preguntas{padding-bottom:56px;max-width:720px}
+.preguntas h2{font-size:clamp(1.35rem,4.6vw,1.8rem);margin-bottom:14px}
+details{border-top:1px solid var(--linea)}
+details:last-of-type{border-bottom:1px solid var(--linea)}
+summary{
+  list-style:none;cursor:pointer;padding:17px 30px 17px 0;position:relative;
+  font-weight:600;font-size:1.02rem;line-height:1.35;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"";position:absolute;right:6px;top:50%;width:9px;height:9px;margin-top:-7px;
+  border-right:2px solid var(--gris);border-bottom:2px solid var(--gris);transform:rotate(45deg);
+  transition:transform .15s ease;
+}
+details[open] summary::after{transform:rotate(-135deg);margin-top:-2px}
+details p{color:var(--gris);margin:0;padding:0 0 18px;line-height:1.5}
+
+/* cierre */
+.cierre{background:var(--tinta);color:#fff;padding:56px 0 48px}
+.cierre h2{font-size:clamp(1.5rem,5.6vw,2.3rem);line-height:1.12;margin-bottom:12px;max-width:18em}
+.cierre p{color:#B7BAC4;margin-bottom:26px}
+.cierre .btn-wa{background:var(--verde);border-color:var(--verde);color:#fff;max-width:420px}
+.cierre .btn-wa svg{fill:#fff}
+.cierre .btn-wa:hover{background:#1A8F56}
+.pie{margin-top:44px;padding-top:20px;border-top:1px solid #2C2F36;font-size:.88rem;color:#8D909A}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="wrap cabecera">
+  <div class="marca">milink<span>.shop</span></div>
+  <a class="chico wa-link" href="#" data-msg="Hola, tengo una consulta sobre milink.shop." target="_blank" rel="noopener">Escribime</a>
+</header>
+
+<main>
+
+  <section class="wrap hero">
+    <div>
+      <h1>Tu producto, con su propia página de venta</h1>
+      <p class="bajada">Pegás el link en tu bio de TikTok o Instagram y te llegan pedidos armados por WhatsApp: producto, talle, color y envío. Lista en 24 horas.</p>
+      <div class="acciones">
+        <a class="btn btn-principal" href="https://ejemplo.milink.shop" target="_blank" rel="noopener">Ver una landing de ejemplo</a>
+        <a class="btn btn-wa wa-link" href="#" data-msg="Hola, quiero una landing para mi producto." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1 .1-1.1z"/></svg>
+          Quiero la mía
+        </a>
+      </div>
+    </div>
+    <figure>
+      <img src="vendedora.jpg" alt="Vendedora mostrando unas zapatillas en un vivo de TikTok" width="1000" height="645">
+    </figure>
+  </section>
+
+  <section class="chat-banda">
+    <div class="wrap">
+      <h2>Chau «info» y «precio?»</h2>
+      <p class="intro">Hoy cada venta arranca con cinco mensajes de ida y vuelta. Con tu landing, el comprador elige todo antes de escribirte.</p>
+
+      <div class="chats">
+        <div class="chat">
+          <p class="chat-titulo">Hoy, por mensaje directo</p>
+          <div class="burbujas">
+            <div class="b">info<span class="hora">21:04</span></div>
+            <div class="b yo">¡Hola! ¿Qué modelo te interesa?<span class="hora">21:40</span></div>
+            <div class="b">las rosas. precio?<span class="hora">22:15</span></div>
+            <div class="b yo">$45.900 ✨<span class="hora">22:16</span></div>
+            <div class="b">hay en 38?<span class="hora">23:52</span></div>
+            <div class="b">y a córdoba cuánto sale<span class="hora">23:52</span></div>
+          </div>
+          <p class="chat-pie">Tres horas y todavía no sabés si hay venta.</p>
+        </div>
+
+        <div class="chat">
+          <p class="chat-titulo">Con tu landing, por WhatsApp</p>
+          <div class="burbujas">
+            <div class="b pedido">Hola, quiero las Zapatillas Ejemplo · Talle 38 · Rosa · Envío al interior<span class="hora">21:04</span></div>
+          </div>
+          <p class="chat-pie"><b>Un mensaje y ya es un pedido.</b> Solo te queda mandar el link de pago.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap muestra">
+    <div class="telefono">
+      <img src="demo.jpg" alt="Captura de una landing con selectores de talle, color y envío" width="540" height="885" loading="lazy">
+    </div>
+    <div>
+      <h2>Así la ve tu comprador</h2>
+      <p>Foto, precio, lo que hace bueno a tu producto y botones para elegir con un toque. Sin registrarse, sin carrito, sin vueltas.</p>
+      <p>Si vendés algo sin talles ni colores, la página se arma con lo que tu producto necesita.</p>
+      <a class="enlace-demo" href="https://ejemplo.milink.shop" target="_blank" rel="noopener">Probala desde tu celular</a>
+    </div>
+  </section>
+
+  <section class="pasos-banda">
+    <div class="wrap">
+      <h2>Cómo funciona</h2>
+      <ol class="pasos">
+        <li><div><b>Me mandás tu producto</b><span>Fotos, precio, talles o colores y tu WhatsApp. Todo por chat.</span></div></li>
+        <li><div><b>En 24 horas está lista</b><span>Te paso el link en tunombre.milink.shop para que la revises.</span></div></li>
+        <li><div><b>La pegás en tu bio</b><span>Y desde ahí te llegan pedidos armados, no preguntas sueltas.</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="wrap precios" id="precios">
+    <h2>Precios</h2>
+    <p class="intro">Un pago para armarla y una cuota mensual para mantenerla online. Sin contratos.</p>
+
+    <div class="planes">
+      <div class="plan">
+        <h3>Vidriera</h3>
+        <div class="monto">$30.000</div>
+        <p class="mensual">+ $5.000 por mes</p>
+        <ul>
+          <li>Tu landing en tunombre.milink.shop</li>
+          <li>Pedidos armados por WhatsApp</li>
+          <li>Botón a tu link de Mercado Pago, si tenés</li>
+        </ul>
+        <a class="btn btn-wa wa-link" href="#" data-msg="Hola, me interesa el plan Vidriera de milink.shop." target="_blank" rel="noopener">Quiero este</a>
+      </div>
+
+      <div class="plan destacado">
+        <span class="etiqueta">Recomendado</span>
+        <h3>Vidriera + Circulación</h3>
+        <div class="monto">$45.000</div>
+        <p class="mensual">+ $5.000 por mes</p>
+        <ul>
+          <li>Todo lo de Vidriera</li>
+          <li>Tu producto aparece 50.000 veces en numerosconsuerte.com.ar, un sitio con 3 millones de visitas por mes</li>
+          <li>Se muestra en la provincia que elijas</li>
+        </ul>
+        <a class="btn btn-principal wa-link" href="#" data-msg="Hola, me interesa el plan Vidriera + Circulación de milink.shop." target="_blank" rel="noopener">Quiero este</a>
+      </div>
+
+      <div class="plan">
+        <h3>Escala</h3>
+        <div class="monto">$70.000</div>
+        <p class="mensual">+ $5.000 por mes</p>
+        <ul>
+          <li>Todo lo de Vidriera</li>
+          <li>Tu producto aparece 100.000 veces en numerosconsuerte.com.ar</li>
+          <li>Se muestra en la provincia que elijas</li>
+        </ul>
+        <a class="btn btn-wa wa-link" href="#" data-msg="Hola, me interesa el plan Escala de milink.shop." target="_blank" rel="noopener">Quiero este</a>
+      </div>
+    </div>
+
+    <p class="extra"><b>¿Vendés más de un producto?</b> Cada landing extra cuesta $15.000 y la cuota mensual no cambia hasta los 3 productos.</p>
+  </section>
+
+  <section class="wrap preguntas">
+    <h2>Preguntas</h2>
+    <details>
+      <summary>¿Necesito tener una tienda online?</summary>
+      <p>No. Alcanza con tu WhatsApp. Si tenés link de Mercado Pago, el botón de compra puede ir directo ahí.</p>
+    </details>
+    <details>
+      <summary>¿Y si mi producto no tiene talles ni colores?</summary>
+      <p>La página se arma con lo que tu producto necesita: variantes, medidas, una descripción más larga, o nada de eso.</p>
+    </details>
+    <details>
+      <summary>¿Qué te tengo que mandar?</summary>
+      <p>Fotos del producto, el precio, tres cosas que lo hacen bueno, las variantes si tiene, y el número de WhatsApp donde querés recibir los pedidos.</p>
+    </details>
+    <details>
+      <summary>¿Cuánto tarda?</summary>
+      <p>24 horas desde que tengo todo lo anterior.</p>
+    </details>
+  </section>
+
+  <section class="cierre">
+    <div class="wrap">
+      <h2>Mandame tu producto y mañana tenés tu link</h2>
+      <p>Todo por WhatsApp, sin reuniones.</p>
+      <a class="btn btn-wa wa-link" href="#" data-msg="Hola, quiero una landing para mi producto." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1 .1-1.1z"/></svg>
+        Escribime por WhatsApp
+      </a>
+      <div class="pie">milink.shop</div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+/* Número de WhatsApp: 549 + característica + número, sin + ni espacios */
+const WHATSAPP = "5491137663645";
+document.querySelectorAll(".wa-link").forEach(a => {
+  a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(a.dataset.msg || "Hola");
+});
+</script>
+</body>
+</html>
