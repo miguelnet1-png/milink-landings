@@ -45,6 +45,10 @@ button{font:inherit;color:inherit}
 .portada .rol{opacity:.85;font-size:1rem}
 .datos{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin-top:16px;font-size:.88rem;opacity:.85}
 
+/* foto */
+.foto-portada{max-width:520px;margin:-18px auto 0;padding:0 20px}
+.foto-portada img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:16px;box-shadow:0 14px 28px -16px rgba(29,36,32,.5)}
+
 /* servicios */
 section{padding-top:30px}
 .rotulo{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--salvia);margin-bottom:12px}
@@ -113,6 +117,9 @@ section{padding-top:30px}
     <div class="datos"><span>Palermo, CABA</span><span>·</span><span>Lunes a sábado</span></div>
   </div>
 </header>
+
+<!-- Foto opcional: si existe foto.jpg en la carpeta se muestra; si no, desaparece sola -->
+<div class="foto-portada"><img src="foto.jpg" alt="Cabina de Lumina" width="1200" height="800" onerror="this.parentNode.remove()"></div>
 
 <main class="wrap">
 
